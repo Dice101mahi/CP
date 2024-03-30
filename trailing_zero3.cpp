@@ -15,7 +15,7 @@ int trailing_zero_count(ll m){
 
 
 ll find_n(int m){
-    int l = 0, h = 10e9, mid;
+    ll l = 0, h = 10e9, mid;
 
     while(l < h){
         mid = l+((h-l)/2);
