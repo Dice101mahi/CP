@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
-#include <time.h>
 using ll = long long;
 using namespace std;
-mt19937 rng(0);
 
 int trailing_zero_count(ll m){
     int base = 5, count = 0;
