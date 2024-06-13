@@ -6,8 +6,8 @@ using namespace std;
 
 void init_code(){  
     #ifndef ONLINE_JUDGE
-        freopen("input.txt", "r", stdin);
-        freopen("output.txt", "w", stdout);
+        freopen("Input.txt", "r", stdin);
+        freopen("Output.txt", "w", stdout);
     #endif
 }
 
@@ -21,23 +21,22 @@ int main(){
     while(t--){
         cin>>m;
 
-        map<int, int> a;
+        int a[m];
 
         f(i, m){
-            cin>>n;
-
-            a[n]++;
+            cin>>a[i];
         }
 
-        if(a.size() > 2){
-            cout<<"No"<<endl;
-        }else{
-            if(abs(a.begin()->second - a.rbegin()->second) < 2){
-                cout<<"Yes"<<endl;
-            }else{
-                cout<<"No"<<endl;
+        int p = 10e8;
+        f(i, m-1){
+            o = max(a[i], a[i+1]);
+
+            if(o < p){
+                p = o;
             }
         }
+
+        cout<<p-1<<endl;
     }
 
     return 0;

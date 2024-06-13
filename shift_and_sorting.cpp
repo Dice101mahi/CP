@@ -19,24 +19,26 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m>>n;
+        string str;
+        cin>>str;
 
-        if(2*n+1 > m){
-            cout<<-1<<endl;
-            continue;
+        int a[str.size()];
+
+        f(i, str.size()){
+            a[i] = str[i]-'0';
         }
 
-        for(int i = 1 ; i <= m ; i++){
-            if(i%2 == 0 && n >0){
-                cout<<i+1<<" "<<i<<" ";
-                i++;
-                n--;
-            }else{
-                cout<<i<<" ";
+        ll sum = 0, cnt = 0;
+        
+        f(i, str.size()){
+            if(a[i] == 0 && cnt > 0){
+                sum += cnt+1;
+            }else if(a[i] == 1){
+                cnt++;
             }
         }
 
-        cout<<endl;
+        cout<<sum<<endl;
     }
 
     return 0;

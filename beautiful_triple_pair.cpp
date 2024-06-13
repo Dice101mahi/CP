@@ -19,24 +19,25 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m>>n;
+        cin>>m;
 
-        if(2*n+1 > m){
-            cout<<-1<<endl;
-            continue;
+        vector<int> a(m);
+
+        f(i, m){
+            cin>>a[i];
         }
 
-        for(int i = 1 ; i <= m ; i++){
-            if(i%2 == 0 && n >0){
-                cout<<i+1<<" "<<i<<" ";
-                i++;
-                n--;
-            }else{
-                cout<<i<<" ";
-            }
-        }
+        vector<map<array<int, 2>, vector<int>>> vmap(3);
 
-        cout<<endl;
+        f(i, m-2){
+            vmap[0][{a[i], a[i+1]}].push_back(a[i+2]);
+            vmap[1][{a[i], a[i+2]}].push_back(a[i+1]);
+            vmap[2][{a[i+1], a[i+2]}].push_back(a[i]);
+        } 
+
+        ll ans = 0;
+
+        
     }
 
     return 0;

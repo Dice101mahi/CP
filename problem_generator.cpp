@@ -4,10 +4,11 @@ using ll = long long;
 #define f(i, m) for(int (i) = (0) ; (i) < (m) ; (i)++)
 using namespace std;
 
+
 void init_code(){  
     #ifndef ONLINE_JUDGE
-        freopen("input.txt", "r", stdin);
-        freopen("output.txt", "w", stdout);
+        freopen("Input.txt", "r", stdin);
+        freopen("Output.txt", "w", stdout);
     #endif
 }
 
@@ -21,22 +22,25 @@ int main(){
     while(t--){
         cin>>m>>n;
 
-        if(2*n+1 > m){
-            cout<<-1<<endl;
-            continue;
+        string str;
+        cin>>str;
+
+        int a[7] = {0};
+
+        f(i, m){
+            
+            a[str[i]-'A']++;
         }
 
-        for(int i = 1 ; i <= m ; i++){
-            if(i%2 == 0 && n >0){
-                cout<<i+1<<" "<<i<<" ";
-                i++;
-                n--;
-            }else{
-                cout<<i<<" ";
+        o = 0;
+
+        f(i, 7){
+            if(a[i] < n){
+                o += n-a[i];
             }
         }
 
-        cout<<endl;
+        cout<<o<<endl;
     }
 
     return 0;

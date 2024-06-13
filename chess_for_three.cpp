@@ -19,24 +19,19 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m>>n;
+        cin>>m>>n>>o;
 
-        if(2*n+1 > m){
+        if((m+n+o)%2 == 1){
             cout<<-1<<endl;
-            continue;
-        }
+        }else{
+            int sum = 0;
 
-        for(int i = 1 ; i <= m ; i++){
-            if(i%2 == 0 && n >0){
-                cout<<i+1<<" "<<i<<" ";
-                i++;
-                n--;
+            if(m+n <= o){
+                cout<<n+m<<endl;
             }else{
-                cout<<i<<" ";
+                cout<<o+(m+n-o)/2<<endl;
             }
         }
-
-        cout<<endl;
     }
 
     return 0;

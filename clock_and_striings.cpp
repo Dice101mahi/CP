@@ -11,32 +11,21 @@ void init_code(){
     #endif
 }
 
-int main(){
-    init_code();
+int main (){
+    init_code ();
 
     ll t, m, n, o, p;
 
     cin>>t;
 
-    while(t--){
-        cin>>m>>n;
+    while (t--){
+        cin>>m>>n>>o>>p;
 
-        if(2*n+1 > m){
-            cout<<-1<<endl;
-            continue;
+        if ( ( ( max(m, n) > max(o, p) && ( min(m, n) > min(o, p) ) ) || ( max(m, n) < max(o, p) && (min(m, n) < min(o, p) ) ) ) && ( ( min(m, n) < max(o, p) ) && ( max(m, n) > min(o, p) ) ) ){
+            cout<<"Yes"<<endl;
+        }else{
+            cout<<"No"<<endl;
         }
-
-        for(int i = 1 ; i <= m ; i++){
-            if(i%2 == 0 && n >0){
-                cout<<i+1<<" "<<i<<" ";
-                i++;
-                n--;
-            }else{
-                cout<<i<<" ";
-            }
-        }
-
-        cout<<endl;
     }
 
     return 0;
