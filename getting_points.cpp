@@ -11,6 +11,30 @@ void init_code(){
     #endif
 }
 
+ll cost(ll mid, ll m, ll o, ll p){
+    ll task = (m-1)/7+1;
+
+    ll cost = (min(2*mid, task)*p)+(mid*o);
+
+    return cost;
+}
+
+ll lb(ll m, ll n, ll o, ll p){
+    ll l = 1, h = m, mid;
+
+    while(l < h){
+        mid = l+(h-l)/2;
+
+        if(cost(mid, m, o, p) < n){
+            l = mid+1;
+        }else{
+            h = mid;
+        }
+    }
+
+    return l;
+}
+
 int main(){
     init_code();
 
@@ -19,24 +43,9 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m;
+        cin>>m>>n>>o>>p;
 
-        vector<int> a(m);
-
-        ll sum = 0;
-
-        f(i, m){
-            cin>>a[i];
-        }
-
-        if(m%2 == 0){
-            cout<<2<<endl;
-            cout<<1<<" "<<m<<endl<<1<<" "<<m<<endl;
-        }else{
-            cout<<4<<endl;
-            cout<<1<<" "<<m-1<<endl<<1<<" "<<m-1<<endl;
-            cout<<m-1<<" "<<m<<endl<<m-1<<" "<<m<<endl;
-        }
+        cout<<m-lb(m, n, o, p)<<endl;
     }
 
     return 0;

@@ -37,7 +37,24 @@ int main(){
 
         ll ans = 0;
 
-        
+        f(i,3){
+        for (auto i : vmap[i]) {
+                vector<int> &v = i.second;
+
+                long long curr = 0;
+                map<int,int> ct;
+                int n = v.size();
+
+                for(int j : v) ct[j]++;
+
+                for(int j : v){
+                    curr += (n-ct[j]);
+                }
+                ans += curr/2;
+            }
+        }
+     
+            cout<<ans<<endl;
     }
 
     return 0;

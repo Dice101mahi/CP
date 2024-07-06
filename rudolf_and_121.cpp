@@ -21,21 +21,34 @@ int main(){
     while(t--){
         cin>>m;
 
-        vector<int> a(m);
-
-        ll sum = 0;
+        int a[m];
 
         f(i, m){
             cin>>a[i];
         }
 
-        if(m%2 == 0){
-            cout<<2<<endl;
-            cout<<1<<" "<<m<<endl<<1<<" "<<m<<endl;
+        int f = 1;
+        f(i, m){
+            if(a[i] < 0){
+                f = 0;
+                break;
+            }
+
+            if(i < m-2){
+                a[i+1] -= 2*a[i];
+                a[i+2] -= a[i];
+                a[i] = 0;
+            }
+        }
+
+        if(a[m-1] > 0 || a[m-2] > 0){
+            f = 0;
+        }
+        
+        if(f){
+            cout<<"YES"<<endl;
         }else{
-            cout<<4<<endl;
-            cout<<1<<" "<<m-1<<endl<<1<<" "<<m-1<<endl;
-            cout<<m-1<<" "<<m<<endl<<m-1<<" "<<m<<endl;
+            cout<<"NO"<<endl;
         }
     }
 

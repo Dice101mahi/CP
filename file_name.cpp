@@ -16,28 +16,25 @@ int main(){
 
     ll t, m, n, o, p;
 
-    cin>>t;
+    string str;
 
-    while(t--){
-        cin>>m;
+    cin>>m>>str;
 
-        vector<int> a(m);
-
-        ll sum = 0;
-
-        f(i, m){
-            cin>>a[i];
-        }
-
-        if(m%2 == 0){
-            cout<<2<<endl;
-            cout<<1<<" "<<m<<endl<<1<<" "<<m<<endl;
+    int count = 0, sum = 0;
+    f(i, m){
+        if(str[i] == 'x'){
+            count++;
         }else{
-            cout<<4<<endl;
-            cout<<1<<" "<<m-1<<endl<<1<<" "<<m-1<<endl;
-            cout<<m-1<<" "<<m<<endl<<m-1<<" "<<m<<endl;
+            if(count > 2){
+                sum += count-2;
+            }
+            count = 0;
         }
     }
+    
+    if(count > 2) sum += count-2;
+
+    cout<<sum<<endl;
 
     return 0;
 }

@@ -16,28 +16,27 @@ int main(){
 
     ll t, m, n, o, p;
 
-    cin>>t;
+    cin>>m;
+    m++;
 
-    while(t--){
-        cin>>m;
+    int a[4];
 
-        vector<int> a(m);
+    while(true){
+        a[0] = m/1000;
+        a[1] = (m/100)%10;
+        a[2] = (m/10)%10;
+        a[3] = m%10;
 
-        ll sum = 0;
-
-        f(i, m){
-            cin>>a[i];
+        if(!(a[0] == a[1] || a[0] == a[2] || a[0] == a[3] ||
+         a[1] == a[2] || a[1] == a[3] || 
+         a[2] == a[3])){
+            break;
         }
 
-        if(m%2 == 0){
-            cout<<2<<endl;
-            cout<<1<<" "<<m<<endl<<1<<" "<<m<<endl;
-        }else{
-            cout<<4<<endl;
-            cout<<1<<" "<<m-1<<endl<<1<<" "<<m-1<<endl;
-            cout<<m-1<<" "<<m<<endl<<m-1<<" "<<m<<endl;
-        }
+        m++;
     }
+
+    cout<<m<<endl;
 
     return 0;
 }

@@ -21,21 +21,15 @@ int main(){
     while(t--){
         cin>>m;
 
-        vector<int> a(m);
-
-        ll sum = 0;
-
-        f(i, m){
-            cin>>a[i];
-        }
-
-        if(m%2 == 0){
-            cout<<2<<endl;
-            cout<<1<<" "<<m<<endl<<1<<" "<<m<<endl;
-        }else{
-            cout<<4<<endl;
-            cout<<1<<" "<<m-1<<endl<<1<<" "<<m-1<<endl;
-            cout<<m-1<<" "<<m<<endl<<m-1<<" "<<m<<endl;
+        for(int i = 1; i <=  m ; i++){
+            f(j, i){
+                if(j == 0 || j == i-1){
+                    cout<<1<<" ";
+                }else{
+                cout<<0<<" ";
+                }
+            }
+            cout<<endl;
         }
     }
 

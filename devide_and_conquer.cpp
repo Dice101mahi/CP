@@ -21,21 +21,28 @@ int main(){
     while(t--){
         cin>>m;
 
-        vector<int> a(m);
-
+        int a[m], cnt[m];
         ll sum = 0;
 
         f(i, m){
             cin>>a[i];
+            sum += a[i];
+
+            int count = 0;
+            o = a[i]%2;
+
+            while(a[i]%2 == o){
+                a[i] /= 2;
+                count++;
+            }
+
+            cnt[i] = count;
         }
 
-        if(m%2 == 0){
-            cout<<2<<endl;
-            cout<<1<<" "<<m<<endl<<1<<" "<<m<<endl;
+        if(sum & 1){
+            cout<<*min_element(cnt, cnt+m)<<endl;
         }else{
-            cout<<4<<endl;
-            cout<<1<<" "<<m-1<<endl<<1<<" "<<m-1<<endl;
-            cout<<m-1<<" "<<m<<endl<<m-1<<" "<<m<<endl;
+            cout<<0<<endl;
         }
     }
 
