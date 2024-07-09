@@ -47,16 +47,23 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m;
+		cin>>m;
 
-        n = m/2020;
-        o = m%2020;
+		int count = 0;
+		while(m > 1){
+			if(m%6 == 0){
+				m /= 6;
+				count++;
+			}else if(m%3 == 0){
+				m /= 3;
+				count += 2;
+			}else{
+				count = -1;
+				break;
+			}
+		}
 
-        if(o <= n){
-            cout<<"YES"<<endl;
-        }else{
-            cout<<"NO"<<endl;
-        }
+		cout<<count<<endl;
     }
 
     return 0;

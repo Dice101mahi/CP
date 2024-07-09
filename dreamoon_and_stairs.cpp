@@ -44,19 +44,20 @@ int main(){
 
     ll t, m, n, o, p;
 
-    cin>>t;
+    cin>>m>>n;
 
-    while(t--){
-        cin>>m;
+    if(m < n){
+        cout<<-1<<endl;
+    }else{
+        p = m%n;
+        o = m-(2*p);
 
-        n = m/2020;
-        o = m%2020;
-
-        if(o <= n){
-            cout<<"YES"<<endl;
-        }else{
-            cout<<"NO"<<endl;
+        while(o >= 2*n){
+            o -= 2*n;
+            p += n;
         }
+
+        cout<<o+p<<endl;
     }
 
     return 0;

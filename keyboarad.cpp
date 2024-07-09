@@ -44,20 +44,29 @@ int main(){
 
     ll t, m, n, o, p;
 
-    cin>>t;
+    char ch;
+    string str;
 
-    while(t--){
-        cin>>m;
+    cin>>ch;
+    cin.ignore();
+    cin>>str;
 
-        n = m/2020;
-        o = m%2020;
+    string s="qwertyuiopasdfghjkl;zxcvbnm,./";
+    string ans;
 
-        if(o <= n){
-            cout<<"YES"<<endl;
-        }else{
-            cout<<"NO"<<endl;
+    f(i, str.size()){
+        int index = s.find(str[i]);
+
+        if(ch == 'R'){
+            ans += s[index-1];
+        
+        }
+        else{
+            ans += s[index+1];
         }
     }
+
+    cout<<ans<<endl;
 
     return 0;
 }

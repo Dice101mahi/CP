@@ -46,17 +46,28 @@ int main(){
 
     cin>>t;
 
-    while(t--){
-        cin>>m;
+    int a[t][2];
+    m = 0, n = 0;
 
-        n = m/2020;
-        o = m%2020;
+    f(i, t){
+        cin>>a[i][0]>>a[i][1];
 
-        if(o <= n){
-            cout<<"YES"<<endl;
+        if(a[i][0] > a[i][1]){
+            m++;
+        }else if(a[i][0] < a[i][1]){
+            n++;
         }else{
-            cout<<"NO"<<endl;
+            m++;
+            n++;
         }
+    }
+
+    if(m == n){
+        cout<<"Friendship is magic!^^"<<endl;
+    }else if(m > n){
+        cout<<"Mishka"<<endl;
+    }else{
+        cout<<"Chris"<<endl;
     }
 
     return 0;

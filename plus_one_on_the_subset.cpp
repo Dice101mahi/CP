@@ -49,14 +49,14 @@ int main(){
     while(t--){
         cin>>m;
 
-        n = m/2020;
-        o = m%2020;
+        int a[m];
 
-        if(o <= n){
-            cout<<"YES"<<endl;
-        }else{
-            cout<<"NO"<<endl;
-        }
+        in(a, m);
+
+        n = *max_element(a, a+m);
+        o = *min_element(a, a+m);
+
+        cout<<n-o<<endl;      
     }
 
     return 0;

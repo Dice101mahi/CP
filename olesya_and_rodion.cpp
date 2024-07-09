@@ -44,19 +44,23 @@ int main(){
 
     ll t, m, n, o, p;
 
-    cin>>t;
+    cin>>m>>n;
 
-    while(t--){
-        cin>>m;
-
-        n = m/2020;
-        o = m%2020;
-
-        if(o <= n){
-            cout<<"YES"<<endl;
+    if(m == 1 && n == 10){
+        cout<<-1<<endl;
+    }else{
+        if(n == 10){
+            f(i, m-1){
+                cout<<1;
+            }
+            cout<<0<<endl;    
         }else{
-            cout<<"NO"<<endl;
+            f(i, m){
+                cout<<n;
+            }
         }
+
+        cout<<endl;
     }
 
     return 0;

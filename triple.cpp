@@ -49,13 +49,30 @@ int main(){
     while(t--){
         cin>>m;
 
-        n = m/2020;
-        o = m%2020;
+        map<int, int> mp;
 
-        if(o <= n){
-            cout<<"YES"<<endl;
-        }else{
-            cout<<"NO"<<endl;
+        f(i, m){
+            cin>>n;
+            if(mp.find(n) == mp.end()){
+                mp[n] = 1;
+            }else{
+                mp[n]++;
+            }
+        }
+
+
+        int f = 1;
+        for(auto it : mp){
+            if(it.second >= 3){
+                cout<<it.first<<endl;
+                f = 0;
+
+                break;
+            }
+        }
+
+        if(f){
+            cout<<-1<<endl;
         }
     }
 

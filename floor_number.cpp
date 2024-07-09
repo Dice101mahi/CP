@@ -42,21 +42,14 @@ int main(){
     fast
     init_code();
 
-    ll t, m, n, o, p;
+    int t, m, n, o, p;
 
     cin>>t;
 
     while(t--){
-        cin>>m;
+         cin>>m>>n;
 
-        n = m/2020;
-        o = m%2020;
-
-        if(o <= n){
-            cout<<"YES"<<endl;
-        }else{
-            cout<<"NO"<<endl;
-        }
+         cout<<ceil(max(0,(m-2))/(float)n)+1<<endl;
     }
 
     return 0;
