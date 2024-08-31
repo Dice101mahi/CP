@@ -49,30 +49,14 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m;
+        cin>>m>>n;
 
-        int a[m];
-        in(a, m);
+        o = n/(m-1);
 
-        ll lcm = a[0];
-        fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
-        }
-
-        int b[m];
-        ll sum = 0;
-        f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
-        }
-
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
-            }
-            cout<<endl;
+        if((n+o)%m == 0){
+            cout<<n+o-1<<endl;
         }else{
-            cout<<-1<<endl;
+            cout<<n+o<<endl;
         }
     }
 

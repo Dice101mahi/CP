@@ -26,12 +26,10 @@ typedef vector<ll> vl;
 typedef vector<pi> vpi;
 typedef vector<pl> vpl;
 const int MOD = 1000000007;
-#define  in(a, m)  for(int i = 0 ; i < m ; i++) cin>>a[i]
+#define  in(a,m)  for(int i = 0 ; i < m ; i++) cin>>a[i]
 #define fm(i, m, n) for(int (i) = 0 ; (i) < (m) ; i += n)
 #define fn(i, n, m) for(int (i) = (n) ; (i) < (m) ; (i)++)
 #define f(i, m) for(int (i) = 0 ; (i) < (m) ; (i)++)
-#define yes cout<<"YES"<<endl;
-#define no cout<<"NO"<<endl;
 
 void init_code(){  
     #ifndef ONLINE_JUDGE
@@ -49,30 +47,24 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m;
+        string str;
+        cin>>str;
 
-        int a[m];
-        in(a, m);
-
-        ll lcm = a[0];
-        fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
-        }
-
-        int b[m];
-        ll sum = 0;
-        f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
-        }
-
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
+        m = 0, n = 0, o = 0;
+        f(i, str.size()){
+            if(str[i] == 'A'){
+                m++;
+            }else if(str[i] == 'B'){
+                n++;
+            }else{
+                o++;
             }
-            cout<<endl;
+        }
+
+        if(m+o == n){
+            cout<<"YES"<<endl;
         }else{
-            cout<<-1<<endl;
+            cout<<"NO"<<endl;
         }
     }
 

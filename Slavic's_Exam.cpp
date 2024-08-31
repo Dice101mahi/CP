@@ -33,10 +33,11 @@ const int MOD = 1000000007;
 #define yes cout<<"YES"<<endl;
 #define no cout<<"NO"<<endl;
 
+
 void init_code(){  
     #ifndef ONLINE_JUDGE
-        freopen("input.txt", "r", stdin);
-        freopen("output.txt", "w", stdout);
+        freopen("Input.txt", "r", stdin);
+        freopen("Output.txt", "w", stdout);
     #endif
 }
 
@@ -49,30 +50,30 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m;
+        string str, str1;
+        cin>>str>>str1;
 
-        int a[m];
-        in(a, m);
-
-        ll lcm = a[0];
-        fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
-        }
-
-        int b[m];
-        ll sum = 0;
-        f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
-        }
-
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
+        int j = 0;
+        f(i, str.size()){
+            if(j < str1.size()){
+                if(str[i] == str1[j]){
+                    j++;
+                }else if(str[i] == '?'){
+                    str[i] = str1[j];
+                    j++;
+                }
+            }else{
+                if(str[i] == '?'){
+                    str[i] = 'a';
+                }
             }
-            cout<<endl;
+        }
+
+        if(j < str1.size()){
+            no
         }else{
-            cout<<-1<<endl;
+            yes
+            cout<<str<<endl;
         }
     }
 

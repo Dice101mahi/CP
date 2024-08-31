@@ -54,25 +54,29 @@ int main(){
         int a[m];
         in(a, m);
 
-        ll lcm = a[0];
+        sort(a, a+m);
+
+        if(a[0] == 1){
+            yes
+            continue;
+        }
+
+        int flag1= 1, flag2 = 1;
         fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
-        }
-
-        int b[m];
-        ll sum = 0;
-        f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
-        }
-
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
+            if(a[i]%a[0] != 0 && flag2 == 1){
+                a[1] = a[i];
+                flag2 = 0;
             }
-            cout<<endl;
+            if(a[i]%a[0] != 0 && a[i]%a[1] != 0 && flag2 == 0){
+                flag1 = 0;
+                break;
+            }
+        }
+
+        if(flag1){
+            yes
         }else{
-            cout<<-1<<endl;
+            no
         }
     }
 

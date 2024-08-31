@@ -46,35 +46,25 @@ int main(){
 
     ll t, m, n, o, p;
 
-    cin>>t;
+    cin>>m;
 
-    while(t--){
-        cin>>m;
+    n = 0;
 
-        int a[m];
-        in(a, m);
+    n += m/100;
+    m %= 100;
 
-        ll lcm = a[0];
-        fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
-        }
+    n += m/20;
+    m %= 20;
 
-        int b[m];
-        ll sum = 0;
-        f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
-        }
+    n += m/10;
+    m %= 10;
 
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
-            }
-            cout<<endl;
-        }else{
-            cout<<-1<<endl;
-        }
-    }
+    n += m/5;
+    m %= 5;
+
+    n += m;
+
+    cout<<n<<endl;
 
     return 0;
 }

@@ -49,31 +49,13 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m;
+        int a[3];
 
-        int a[m];
-        in(a, m);
+        in(a, 3);
 
-        ll lcm = a[0];
-        fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
-        }
+        sort(a, a+3);
 
-        int b[m];
-        ll sum = 0;
-        f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
-        }
-
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
-            }
-            cout<<endl;
-        }else{
-            cout<<-1<<endl;
-        }
+        cout<<a[1]<<endl;
     }
 
     return 0;

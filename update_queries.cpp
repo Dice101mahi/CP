@@ -26,10 +26,12 @@ typedef vector<ll> vl;
 typedef vector<pi> vpi;
 typedef vector<pl> vpl;
 const int MOD = 1000000007;
-#define  in(a,m)  for(int i = 0 ; i < m ; i++) cin>>a[i]
+#define  in(a, m)  for(int i = 0 ; i < m ; i++) cin>>a[i]
 #define fm(i, m, n) for(int (i) = 0 ; (i) < (m) ; i += n)
 #define fn(i, n, m) for(int (i) = (n) ; (i) < (m) ; (i)++)
 #define f(i, m) for(int (i) = 0 ; (i) < (m) ; (i)++)
+#define yes cout<<"YES"<<endl;
+#define no cout<<"NO"<<endl;
 
 void init_code(){  
     #ifndef ONLINE_JUDGE
@@ -47,7 +49,27 @@ int main(){
     cin>>t;
 
     while(t--){
-        cout<<"Hello"<<" "<<endl;
+        cin>>m>>n;
+
+        string str, str2;
+        cin>>str;
+
+        set<int> s;
+        f(i, n){
+            cin>>o;
+
+            s.insert(o-1);
+        }
+
+        cin>>str2;
+        sort(str2.begin(), str2.end());
+
+        int k = 0;
+        for(int it : s){
+            str[it] = str2[k++];
+        }
+
+        cout<<str<<endl;
     }
 
     return 0;

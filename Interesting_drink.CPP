@@ -40,40 +40,44 @@ void init_code(){
     #endif
 }
 
+int u_bound(vi &v, int target){
+    ll l = 0, h = v.size(), mid;
+
+    while(l < h){
+        mid = l+(h-l)/2;
+
+        if(v[mid] <= target){
+            l = mid+1;
+        }else{
+            h = mid;
+        }
+    }
+
+    return l;
+}
+
 int main(){
     fast
     init_code();
 
     ll t, m, n, o, p;
 
+    cin>>m;
+    vi v;
+
+    f(i, m){
+        cin>>n;
+        v.pb(n);
+    }
+
+    sort(v.begin(), v.end());
+
     cin>>t;
 
     while(t--){
-        cin>>m;
+        cin>>n;
 
-        int a[m];
-        in(a, m);
-
-        ll lcm = a[0];
-        fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
-        }
-
-        int b[m];
-        ll sum = 0;
-        f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
-        }
-
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
-            }
-            cout<<endl;
-        }else{
-            cout<<-1<<endl;
-        }
+        cout<<u_bound(v, n)<<endl;
     }
 
     return 0;

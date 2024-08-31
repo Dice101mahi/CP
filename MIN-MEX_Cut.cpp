@@ -49,30 +49,34 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m;
+        string str;
+        cin>>str;
 
-        int a[m];
-        in(a, m);
+        int count = 0;
 
-        ll lcm = a[0];
-        fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
-        }
+        f(i, str.size()){
+            if(str[i] == '0'){
+                count++;
 
-        int b[m];
-        ll sum = 0;
-        f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
-        }
+                if(count == 2){
+                    break;
+                }
 
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
+                for( ; i < str.size() ; i++){
+                    if(str[i] == '1'){
+                        i--;
+                        break;
+                    }
+                }
             }
-            cout<<endl;
+        }
+
+        if(count == 0){
+            cout<<0<<endl;
+        }else if(count == 1){
+            cout<<1<<endl;
         }else{
-            cout<<-1<<endl;
+            cout<<2<<endl;
         }
     }
 

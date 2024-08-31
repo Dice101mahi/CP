@@ -51,29 +51,20 @@ int main(){
     while(t--){
         cin>>m;
 
-        int a[m];
-        in(a, m);
-
-        ll lcm = a[0];
-        fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
-        }
-
-        int b[m];
-        ll sum = 0;
+        vi v;
         f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
+            cin>>n;
+            v.pb(n);
         }
 
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
-            }
-            cout<<endl;
-        }else{
-            cout<<-1<<endl;
+        int max = v[0], min = v[0];
+
+        fn(i, 1, m){
+            max = max|v[i];
+            min  = min&v[i];
         }
+
+        cout<<max-min<<endl;
     }
 
     return 0;

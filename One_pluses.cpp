@@ -26,12 +26,10 @@ typedef vector<ll> vl;
 typedef vector<pi> vpi;
 typedef vector<pl> vpl;
 const int MOD = 1000000007;
-#define  in(a, m)  for(int i = 0 ; i < m ; i++) cin>>a[i]
+#define  in(a,m)  for(int i = 0 ; i < m ; i++) cin>>a[i]
 #define fm(i, m, n) for(int (i) = 0 ; (i) < (m) ; i += n)
 #define fn(i, n, m) for(int (i) = (n) ; (i) < (m) ; (i)++)
 #define f(i, m) for(int (i) = 0 ; (i) < (m) ; (i)++)
-#define yes cout<<"YES"<<endl;
-#define no cout<<"NO"<<endl;
 
 void init_code(){  
     #ifndef ONLINE_JUDGE
@@ -49,31 +47,20 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m;
+        int a[3];
+        in(a, 3);
 
-        int a[m];
-        in(a, m);
+        sort(a, a+3);
 
-        ll lcm = a[0];
-        fn(i, 1, m){
-            lcm = (lcm*a[i])/__gcd<ll>(lcm, a[i]);
+        for (int i = 0; i < 5; i++) {
+            if (a[0] <= a[1] && a[0] <= a[2]) a[0]++;
+            else if (a[1] <= a[0] && a[1] <= a[2]) a[1]++;
+            else a[2]++;
         }
 
-        int b[m];
-        ll sum = 0;
-        f(i, m){
-            b[i] = lcm/a[i];
-            sum += b[i];
-        }
+        m = a[0]*a[1]*a[2];
 
-        if(sum < lcm){
-            f(i, m){
-                cout<<b[i]<<" ";
-            }
-            cout<<endl;
-        }else{
-            cout<<-1<<endl;
-        }
+        cout<<m<<endl;
     }
 
     return 0;

@@ -30,6 +30,8 @@ const int MOD = 1000000007;
 #define fm(i, m, n) for(int (i) = 0 ; (i) < (m) ; i += n)
 #define fn(i, n, m) for(int (i) = (n) ; (i) < (m) ; (i)++)
 #define f(i, m) for(int (i) = 0 ; (i) < (m) ; (i)++)
+#define yes cout<<"YES"<<endl;
+#define no cout<<"NO"<<endl;
 
 void init_code(){  
     #ifndef ONLINE_JUDGE
@@ -47,7 +49,53 @@ int main(){
     cin>>t;
 
     while(t--){
-        cout<<"Hello"<<" "<<endl;
+        cin>>m;
+
+        int a[m], b[m];
+
+        in(a, m);
+        in(b, m);
+
+        cin>>n;
+        map<int, int> d;
+        f(i, n){
+            cin>>o;
+            d[o]++;
+        }
+
+        int f = 1;
+        f(i, m){
+            if(b[i] == o){
+                f = 0;
+                break;
+            }
+        }
+
+        if(f){
+            no
+            continue;
+        }
+
+        f = 1;
+        f(i, m){
+            if(a[i] != b[i]){
+                if(d.find(b[i]) == d.end()){
+                    no  
+                    f = 0;
+                    break;
+                }else{
+                    d[b[i]]--;
+
+                    if(d[b[i]] == 0){
+                        d.erase(b[i]);
+                    }
+                }
+            }
+        }
+
+        if(f){
+            yes
+        }
     }
 
     return 0;
