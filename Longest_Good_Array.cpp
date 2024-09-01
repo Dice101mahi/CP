@@ -35,8 +35,8 @@ const int MOD = 1000000007;
 
 void init_code(){  
     #ifndef ONLINE_JUDGE
-        freopen("input.txt", "r", stdin);
-        freopen("output.txt", "w", stdout);
+        freopen("Input.txt", "r", stdin);
+        freopen("Output.txt", "w", stdout);
     #endif
 }
 
@@ -49,7 +49,23 @@ int main(){
     cin>>t;
 
     while(t--){
-        
+        cin>>m>>n;
+
+        o = 1;
+        p = 0;
+        int i = 1;
+
+        while(p < n-m){
+            o++;
+            p += i;
+            i++;
+        }
+
+        if(p == n-m){
+            cout<<o<<endl;
+        }else{
+            cout<<o-1<<endl;
+        }
     }
 
     return 0;

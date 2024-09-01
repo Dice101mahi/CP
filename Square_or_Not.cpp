@@ -33,10 +33,11 @@ const int MOD = 1000000007;
 #define yes cout<<"YES"<<endl;
 #define no cout<<"NO"<<endl;
 
+
 void init_code(){  
     #ifndef ONLINE_JUDGE
-        freopen("input.txt", "r", stdin);
-        freopen("output.txt", "w", stdout);
+        freopen("Input.txt", "r", stdin);
+        freopen("Output.txt", "w", stdout);
     #endif
 }
 
@@ -49,7 +50,28 @@ int main(){
     cin>>t;
 
     while(t--){
-        
+        string str;
+        cin>>m>>str;
+
+        int z = 0, o = 0;
+        f(i, str.size()){
+            if(str[i] == '0'){
+                z++;
+            }else{
+                o++;
+            }
+        }
+
+        if(o%4 == 0){
+            n = o/4-1;
+            if(z == n*n){
+                yes
+            }else{
+                no
+            }
+        }else{
+            no
+        }
     }
 
     return 0;
