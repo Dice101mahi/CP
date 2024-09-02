@@ -53,7 +53,7 @@ int main(){
         }
 
         int f = 1, count = 0;
-        for(auto i : mp){
+        for(auto &i : mp){
             if(i.second.first > 1 && f){
                 i.second.second = 3;
                 f = 0;
@@ -64,7 +64,6 @@ int main(){
             }else{
                 i.second.second = 1;
             }
-            i.second.second = 5;
         }
 
         if(count < 2){
