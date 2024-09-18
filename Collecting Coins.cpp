@@ -42,24 +42,22 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m>>n;
+        cin>>m>>n>>o>>p;
 
-        int ans = n, even = 0;
+        int sum = m+n+o+p;
 
-        f(i, m){
-            cin>>o;
-            if(o%n == 0) ans = 0;
-            ans = min<ll>(ans, n-o%n);
-            if(o%2 == 0) even++;
+        if(sum != (sum/3)*3){
+            no;
+            continue;
         }
 
-        if(n == 4){
-            if(even > 1) ans = 0;
-            else if(even == 1) ans = min(1, ans);
-            else ans = min(ans, 2);
-        }
-
-        cout<<ans<<endl;
+        int avg = sum/3;
+        
+        if(avg < m || avg < n || avg < o){
+            no;
+        }else{
+            yes;
+        } 
     }
 
     return 0;

@@ -42,24 +42,24 @@ int main(){
     cin>>t;
 
     while(t--){
-        cin>>m>>n;
+        int a[3][2];
 
-        int ans = n, even = 0;
-
-        f(i, m){
-            cin>>o;
-            if(o%n == 0) ans = 0;
-            ans = min<ll>(ans, n-o%n);
-            if(o%2 == 0) even++;
+        f(i, 3){
+            cin>>a[i][0]>>a[i][1];
         }
 
-        if(n == 4){
-            if(even > 1) ans = 0;
-            else if(even == 1) ans = min(1, ans);
-            else ans = min(ans, 2);
+        if((abs(a[1][0]-a[2][0]) == 3 && abs(a[1][1]-a[2][1]) == 3)||
+            (abs(a[1][0]-a[2][0]) == 2 && abs(a[1][1]-a[2][1]) == 0)||
+            (abs(a[1][0]-a[2][0]) == 0 && abs(a[1][1]-a[2][1]) == 2)||
+            (abs(a[1][0]-a[2][0]) == 4 && abs(a[1][1]-a[2][1]) == 0)||
+            (abs(a[1][0]-a[2][0]) == 0 && abs(a[1][1]-a[2][1]) == 4)){
+                cout<<2<<endl;
+        }else if((abs(a[1][0]-a[2][0]) == 2 && abs(a[1][1]-a[2][1]) == 4)||
+                    (abs(a[1][0]-a[2][0]) == 4 && abs(a[1][1]-a[2][1]) == 2)){
+                cout<<1<<endl;
+        }else{
+            cout<<0<<endl;
         }
-
-        cout<<ans<<endl;
     }
 
     return 0;

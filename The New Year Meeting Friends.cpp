@@ -39,28 +39,12 @@ int main(){
     ll t, m, n, o, p;
     int f;
 
-    cin>>t;
+    int a[3];
+    in(a, 3);
 
-    while(t--){
-        cin>>m>>n;
+    sort(a, a+3);
 
-        int ans = n, even = 0;
-
-        f(i, m){
-            cin>>o;
-            if(o%n == 0) ans = 0;
-            ans = min<ll>(ans, n-o%n);
-            if(o%2 == 0) even++;
-        }
-
-        if(n == 4){
-            if(even > 1) ans = 0;
-            else if(even == 1) ans = min(1, ans);
-            else ans = min(ans, 2);
-        }
-
-        cout<<ans<<endl;
-    }
+    cout<<a[1]-a[0]+a[2]-a[1]<<endl;
 
     return 0;
 }
