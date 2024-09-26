@@ -2,7 +2,7 @@
 using namespace std;
 #define ll long long int
 #define llu long long unsigned
-#define ld long double
+#define ld double
 #define fast ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 #define endl '\n'
 #define pb push_back
@@ -43,12 +43,10 @@ int main(){
 
     f(z, t){
         cin>>m;
-
-        m = 1/sqrt(m*m-4);
-
-        setprecision(4);
-
-        cout<<m<<endl;
+        
+        n = sqrt((m*m-1)/(4-m*m));
+        
+        printf("Case %d: %.4lf\n", z+1, n);
     }
 
     return 0;
