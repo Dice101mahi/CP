@@ -44,7 +44,7 @@ int main(){
     while(t--){
         cin>>m>>n;
 
-        int a[n];
+        int a[m];
         in(a, m);
 
         sort(a, a+m, greater<int>());
