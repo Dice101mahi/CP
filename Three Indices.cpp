@@ -52,7 +52,7 @@ int main(){
             if(a[i] > a[i-1] && a[i] > a[i+1]){
                 yes
                 f = 0;
-                cout<<a[i-1]<<" "<<a[i]<<" "<<a[i+1]<<endl;
+                cout<<i<<" "<<i+1<<" "<<i+2<<endl;
                 break;
             }
         }
