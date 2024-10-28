@@ -47,7 +47,7 @@ int main(){
         int a[m], b[m];
 
         f(i, m){
-            b[i] = 1000;
+            b[i] = 10e9;
             cin>>n;
             f(j, n){
                 if(j == 0){
@@ -64,14 +64,13 @@ int main(){
             }
         }
 
-        cout<<endl;
-        sort(a, a+m);
-        sort(b, b+m, greater<int>()); 
-
-        ll ans = a[0];
-        f(i, m-1){
+        ll ans = 0;
+        f(i, m){
             ans += b[i];
         }
+
+        ans += *min_element(a, a+m);
+        ans -= *min_element(b, b+m);
 
         cout<<ans<<endl;
     }
